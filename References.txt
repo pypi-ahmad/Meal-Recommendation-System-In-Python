@@ -1,0 +1,77 @@
+-> Installing all requirements
+
+Note - Make sure you have python 3 or above installed 
+       Make sure you have stable internet speed and connection
+
+To install all requirements run this command on terminal - pip install -r requirements.txt
+
+this will take some time let the things download without interuuption and let the terminal to stop on its own.
+
+***************************************************************************************************************************
+
+-> Understanding Recommendation
+
+There are two types of Recommendation
+
+1. Content Based  - A content based recommender works with data that the user provides
+                    ( In our case user will provide data at the time of sign in 
+                      as we will ask for his preferences like diet, nutrient etc..)
+
+2 Collaborative   - In this method we do Recommendation on the basis of " similar users " and " users activity "
+
+****************************************************************************************************************************
+
+-> Algorithms used for Recommendation
+
+K-Nearest Neighbor (availible by sklearn)
+
+KNN is a supervised algorithm (which means that the training data is labeled,), 
+it is non-parametric and lazy (instance based).
+
+Why is lazy? Because it does not explicitly learns the model,
+but it saves all the training data and uses the whole training set for classification or prediction. 
+
+
+for more info - https://towardsdatascience.com/knn-in-python-835643e2fb53
+
+*****************************************************************************************************************************
+
+-> Implementation of Recommendation
+
+1. for the first time when user sign in , the Recommendation will be Content based ie based on his profile
+
+2. when user logs in second or further time the Recommendation will be
+  - Recommendation based on similar users  + Recommendation based on his last activity
+
+Note - content based will used only for first time.
+
+****************************************************************************************************************************
+
+Mandatory changes need to be done after downloading django code and before running django - 
+
+1. Edit all file paths according to your directory structure
+2. make required migrations - python manage.py makemigrations and python manage.py migrate
+3. create superuser - python manage.py createsuperuser
+
+
+Note - in case you are new to Django please check - https://docs.djangoproject.com/en/3.1/intro/tutorial01/
+
+youll find step by step explanation how to make a demo app in django from here
+
+
+-> Understanding Django Implementation
+
+Our code for content based and Collaborative Recommendation will be called from
+
+Urls.py -> Recommendation.py (for content based ie for first time)
+
+Urls.py -> SecondRecommendation.py (for Collaborative ie when user logs in more than one time )
+
+*******************************************************************************************************************************
+
+Thats all as of Understanding things and Implementation now you can run app by - python manage.py runserver   :)
+
+Thank you
+
+
+
